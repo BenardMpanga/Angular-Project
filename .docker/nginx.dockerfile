@@ -1,5 +1,5 @@
 ##### Stage 1
-FROM node:22 AS node
+FROM node:lts AS node
 LABEL author="Dan Wahlin"
 
 ARG NG_APP_API_URL
@@ -14,7 +14,7 @@ RUN npm run build
 ##### Stage 2
 FROM nginx:alpine
 VOLUME /var/cache/nginx
-COPY --from=node /app/dist/angular-jumpstart /usr/share/nginx/html
+COPY --from=node /app/dist/angular-jumpstart/browser /usr/share/nginx/html
 COPY ./.docker/config/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Run from project root
