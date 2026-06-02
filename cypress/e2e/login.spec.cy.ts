@@ -8,8 +8,8 @@ describe("Login", () => {
   
     it("should login user", () => {
       cy.get('[name="email"]').type('test@test.com');
-      cy.get('[name="password').type('password1');
-      cy.get('.btn-success').click();  
+      cy.get('[name="password"]').type('password1');
+      cy.get('.login-submit').click();  
       cy.url().should('include', '/customers');
     });
 
