@@ -70,7 +70,8 @@ export class CustomerDetailsComponent implements OnInit {
       this.mapComponentRef.instance.latitude = this.customer!.latitude;
       this.mapComponentRef.instance.longitude = this.customer!.longitude;
       this.mapComponentRef.instance.zoom = 10;
-      this.mapComponentRef.instance.markerText = `<h3>${this.customer!.firstName} ${this.customer!.lastName}</h3>${this.customer!.city}, ${this.customer!.state.name}`;
+      const stateName = typeof this.customer!.state === 'string' ? this.customer!.state : this.customer!.state.name;
+      this.mapComponentRef.instance.markerText = `<h3>${this.customer!.firstName} ${this.customer!.lastName}</h3>${this.customer!.city}, ${stateName}`;
       this.mapComponentRef.instance.enabled = true;
       
       console.log('Map properties set:', {
@@ -83,5 +84,8 @@ export class CustomerDetailsComponent implements OnInit {
     }
   }
 
-
+  getStateName(): string {
+    if (!this.customer) return '';
+    return typeof this.customer.state === 'string' ? this.customer.state : this.customer.state.name;
+  }
 }
