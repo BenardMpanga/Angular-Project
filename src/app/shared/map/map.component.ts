@@ -190,3 +190,5 @@ export class MapComponent implements OnInit, AfterContentInit {
     });
   }
 }
+
+
