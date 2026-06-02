@@ -9,3 +9,5 @@ export const ROUTES: Routes = [
     { path: 'login', loadComponent: () => import('./login/login.component').then(m => m.LoginComponent) },
     { path: '**', pathMatch: 'full', redirectTo: '/customers' } // catch any unfound routes and redirect to home page
   ];
+
+  
