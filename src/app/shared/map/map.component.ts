@@ -115,7 +115,7 @@ export class MapComponent implements OnInit, AfterContentInit {
       mapsScript.type = 'text/javascript';
       mapsScript.async = true;
       mapsScript.defer = true;
-      mapsScript.src = 'https://maps.googleapis.com/maps/api/js?key=';
+      mapsScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCJMeP32kiXBfUoY4zFszOpm8Vm1G6xvEE';
       mapsScript.onload = () => {
         this.loadingScript = false;
         if (this.isEnabled) { this.renderMap(); }
